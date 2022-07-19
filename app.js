@@ -6,6 +6,8 @@ const { resolvers } = require("./resolvers");
 
 const app = express();
 
+app.get('/', (req, res) => res.send('Welcome to my api'));
+
 module.exports = app;
 
 async function start() {
