@@ -1,6 +1,9 @@
 const resolvers = {
   Query: {
     hello: () => "Hello World",
+    getAllTasks: () => {
+      return [];
+    },
   },
 };
 
