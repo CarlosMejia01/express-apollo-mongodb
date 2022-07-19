@@ -6,7 +6,7 @@ const { resolvers } = require("./resolvers");
 
 const app = express();
 
-app.get('/', (req, res) => res.send('Welcome to my api'));
+app.get("/", (req, res) => res.send("Welcome to my api"));
 
 module.exports = app;
 
@@ -19,7 +19,9 @@ async function start() {
   //Initialize apollo instance
   await apolloServer.start();
 
-  apolloServer.applyMiddleware({app});
+  apolloServer.applyMiddleware({ app });
+
+  app.use("*", (req, res) => res.status(404).send("Not found"));
 
   app.listen(3000, () => {
     console.log("Server on port", 3000);
