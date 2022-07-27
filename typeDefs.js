@@ -1,21 +1,21 @@
 const { gql } = require("apollo-server-express");
 
 const typeDefs = gql`
-
-type Task {
+  type Task {
     id: ID
     title: String
     description: String
-}
+  }
 
-
-type Query {
+  type Query {
     hello: String
     getAllTasks: [Task]
   }
 
-  #type Mutation {
-  #}
+  #create task
+  type Mutation {
+    createTask(title: String, description: String): Task
+  }
 `;
 
 module.exports = { typeDefs };
