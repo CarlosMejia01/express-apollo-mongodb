@@ -7,8 +7,8 @@ const resolvers = {
       const tasks = await Task.find();
       return tasks;
     },
-    async getTask(_, args) {
-      const task = await Task.findById(args.id);
+    async getTask(_, { id }) {
+      const task = await Task.findById(id);
       return task;
     },
   },
@@ -18,6 +18,10 @@ const resolvers = {
       const newTask = new Task({ title, description });
       await newTask.save();
       return newTask;
+    },
+    async deleteTask(_, { id }) {
+      await Task.findByIdAndDelete(id);
+      return "Task deleted";
     },
   },
 };
