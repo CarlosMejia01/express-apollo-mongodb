@@ -13,10 +13,16 @@ const typeDefs = gql`
     getTask(id: ID): Task
   }
 
+  input TaskInput {
+    title: String
+    description: String
+  }
+
   #create task
   type Mutation {
-    createTask(title: String, description: String): Task
-    deleteTask(id: ID): String
+    createTask(task: TaskInput!): Task
+    deleteTask(id: ID!): String
+    updateTask(id: ID!, task: TaskInput): Task
   }
 `;
 
