@@ -10,6 +10,7 @@ const typeDefs = gql`
   type Query {
     hello: String
     getAllTasks: [Task]
+    getTask(id: ID): Task
   }
 
   #create task
